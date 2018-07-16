@@ -12,21 +12,21 @@ class DatabaseEntrenador{
     companion object {
 
         fun insertarEntrenador(entrenador:Entrenador){
-            "http://192.168.100.21:1337/Entrenador".httpPost(listOf("nombre" to entrenador.nombre, "apellido" to entrenador.apellido, "fechaNacimiento" to entrenador.fechaNacimiento, "medallas" to entrenador.numeroMedallas, "campeonActual" to entrenador.campeonActual))
+            "http://192.168.100.22:1337/Entrenador".httpPost(listOf("nombre" to entrenador.nombre, "apellido" to entrenador.apellido, "fechaNacimiento" to entrenador.fechaNacimiento, "medallas" to entrenador.numeroMedallas, "campeonActual" to entrenador.campeonActual))
                     .responseString { request, _, result ->
                         Log.d("http-ejemplo", request.toString())
                     }
         }
 
         fun eliminarEntrenador(id: Int) {
-            "http://192.168.100.21:1337/Entrenador/$id".httpDelete()
+            "http://192.168.100.22:1337/Entrenador/$id".httpDelete()
                     .responseString { request, response, result ->
                         Log.d("http-ejemplo", request.toString())
                     }
         }
 
         fun actualizarEntrenador(entrenador: Entrenador) {
-            "http://192.168.100.21:1337/Entrenador/${entrenador.id}".httpPut(listOf("nombre" to entrenador.nombre, "apellido" to entrenador.apellido, "fechaNacimiento" to entrenador.fechaNacimiento, "medallas" to entrenador.numeroMedallas, "campeonActual" to entrenador.campeonActual))
+            "http://192.168.100.22:1337/Entrenador/${entrenador.id}".httpPut(listOf("nombre" to entrenador.nombre, "apellido" to entrenador.apellido, "fechaNacimiento" to entrenador.fechaNacimiento, "medallas" to entrenador.numeroMedallas, "campeonActual" to entrenador.campeonActual))
                     .responseString { request, _, result ->
                         Log.d("http-ejemplo", request.toString())
                     }
@@ -36,7 +36,7 @@ class DatabaseEntrenador{
             val entrenadores: ArrayList<Entrenador> = ArrayList()
             val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
             StrictMode.setThreadPolicy(policy)
-            val (request, response, result) = "http://192.168.100.21:1337/Entrenador".httpGet().responseString()
+            val (request, response, result) = "http://192.168.100.22:1337/Entrenador".httpGet().responseString()
             val jsonStringAutor = result.get()
 
             val parser = Parser()

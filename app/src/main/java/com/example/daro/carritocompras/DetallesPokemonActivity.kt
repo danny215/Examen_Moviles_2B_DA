@@ -28,7 +28,15 @@ class DetallesPokemonActivity : AppCompatActivity() {
         txtShowFechaC.text = pokemon?.fechaCaptura
         txtShowNivel.text = pokemon?.nivel.toString()
 
+        button3.setOnClickListener { v: View? ->
+            enviarDatos()
+        }
+
+
     }
 
+    fun enviarDatos(){
 
+
+    }
 }

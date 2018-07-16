@@ -10,7 +10,7 @@ import android.util.Log
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_listar_entrenadores.*
 
-class ListarPokemonActivity : AppCompatActivity() {
+class ListarPokemonAActivity : AppCompatActivity() {
 
     lateinit var adaptador: PokemonAdapter
     lateinit var pokemones: ArrayList<Pokemon>

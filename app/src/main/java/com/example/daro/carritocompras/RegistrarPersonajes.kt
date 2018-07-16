@@ -27,7 +27,7 @@ class RegistrarPersonajes : AppCompatActivity() {
             //Toast.makeText(this,"Deshabilito boton", Toast.LENGTH_SHORT).show()
             btnBuscarEntrenador.visibility = View.INVISIBLE
         }else if (rol.equals("DELIVERY",true)){
-            irActividadDelivery()
+            irActividadListarP()
 
         }else{
             btnCrearEntrenador.visibility = View.INVISIBLE
@@ -41,6 +41,10 @@ class RegistrarPersonajes : AppCompatActivity() {
 
         btnListarEntrenador.setOnClickListener { v: View? ->
             irListarEntrenadorActivity()
+        }
+
+        btnBuscarEntrenador.setOnClickListener { v: View? ->
+            irActividadListarP()
         }
 
 
@@ -57,8 +61,8 @@ class RegistrarPersonajes : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun irActividadDelivery(){
-        val intent = Intent(this,   DeliveryActivity::class.java)
+    fun irActividadListarP(){
+        val intent = Intent(this, ListarPokemonActivity::class.java)
         startActivity(intent)
 
     }

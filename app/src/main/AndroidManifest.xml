@@ -29,7 +29,9 @@
         <activity android:name=".DetallesEntrenadorActivity" />
         <activity android:name=".DeliveryActivity" />
         <activity android:name=".PokemonActivity" />
-        <activity android:name=".ListarPokemonActivity"></activity>
+        <activity android:name=".ListarPokemonActivity" />
+        <activity android:name=".ListarPokemonAActivity" />
+        <activity android:name=".UbicacionActivity"></activity>
     </application>
 
 </manifest>
