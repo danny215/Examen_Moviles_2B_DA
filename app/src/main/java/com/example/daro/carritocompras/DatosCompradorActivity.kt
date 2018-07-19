@@ -29,14 +29,17 @@ class DatosCompradorActivity : AppCompatActivity() {
     fun crearOreden(){
         var cedula = txtCedulaComprador.text.toString().toInt()
         var sector = txtSector.text.toString()
+        var nombre = txtNombre.text.toString()
+        var apellido = txtApellido.text.toString()
+        var edad = txtEdad.text.toString().toInt()
         var idPokemon = idPokemonn.toString().toInt()
 
-        var oredenCompra = OrdenCompraKotlinClass(0,cedula,sector,idPokemon)
+        var oredenCompra = OrdenCompraKotlinClass(0,cedula,sector,nombre,apellido,edad,idPokemon)
         OrdenCompraDB.insertarOrden(oredenCompra)
 
         Alerter.create(this)
-                .setTitle("Datos Enviados a DELIVERY")
-                .setText("Su peticion ha sido enviada satisfactoriamente")
+                .setTitle("Datos Enviados a Delivery")
+                .setText("Su peticion ha sido enviada correctamente")
                 .setDuration(10000)
                 .enableSwipeToDismiss()
                 .setOnClickListener(View.OnClickListener {
