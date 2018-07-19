@@ -9,21 +9,23 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="352dp"
-        android:layout_height="315dp"
+        android:layout_width="371dp"
+        android:layout_height="382dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/pokemon" />
 
     <Button
         android:id="@+id/btnCrearEntrenador"
         android:layout_width="142dp"
         android:layout_height="83dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="60dp"
         android:layout_marginEnd="48dp"
         android:layout_marginStart="8dp"
         android:background="@drawable/huevosp"
@@ -32,13 +34,14 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnListarEntrenador"
+        app:layout_constraintHorizontal_bias="0.066"
         app:layout_constraintStart_toStartOf="@+id/imageView" />
 
     <Button
         android:id="@+id/btnListarEntrenador"
         android:layout_width="150dp"
         android:layout_height="82dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="60dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/listap"
         android:text="@string/listar"
@@ -53,16 +56,19 @@
     <Button
         android:id="@+id/btnBuscarEntrenador"
         android:layout_width="242dp"
-        android:layout_height="38dp"
+        android:layout_height="84dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:background="@android:color/holo_blue_dark"
-        android:text="@string/buscar"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/buscar"
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.812" />
 
 </android.support.constraint.ConstraintLayout>

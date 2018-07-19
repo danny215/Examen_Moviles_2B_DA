@@ -3,7 +3,6 @@ package com.example.daro.carritocompras
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import kotlinx.android.synthetic.main.activity_entrenador.*
 
@@ -51,15 +50,15 @@ class EntrenadorActivity : AppCompatActivity() {
         if (!tipo){
 
             var entrenador = Entrenador(0, nombre, apellido, fecha, numeroMedallas, campeon,0,0)
-            DatabaseEntrenador.insertarEntrenador(entrenador)
+            EntrenadorDB.insertarEntrenador(entrenador)
 
         }else{
             var entrenador = Entrenador(entrenador?.id!!, nombre, apellido, fecha, numeroMedallas, campeon,0,0)
-            DatabaseEntrenador.actualizarEntrenador(entrenador)
+            EntrenadorDB.actualizarEntrenador(entrenador)
         }
 
-        //Log.d("print",DatabaseEntrenador.getList().toString())
-        //print(DatabaseEntrenador.getList())
+        //Log.d("print",EntrenadorDB.getList().toString())
+        //print(EntrenadorDB.getList())
         irListarEntrenadorActivity()
 
     }

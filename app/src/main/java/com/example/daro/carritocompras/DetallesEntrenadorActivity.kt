@@ -16,12 +16,19 @@ class DetallesEntrenadorActivity : AppCompatActivity() {
     var entrenador: Entrenador? = null
     lateinit var pokemon: ArrayList<Pokemon>
     lateinit var adaptador: PokemonAdapter
+    //lateinit var codigoBotonoActivar:String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalles_entrenador)
 
+
+
         entrenador = intent.getParcelableExtra("detallesEntrenador")
+        //codigoBotonoActivar = intent.getStringExtra("codigoBotonoActivar")
+
+        //Toast.makeText(this,codigoBotonoActivar,Toast.LENGTH_SHORT).show()
 
         txtShowIdEntrenador.text = entrenador?.id.toString()
         txtShowNombreEntrenador.text = entrenador?.nombre
@@ -32,7 +39,7 @@ class DetallesEntrenadorActivity : AppCompatActivity() {
 
 
 
-       pokemon = DatabasePokemon.getPokemonList(entrenador?.id!!)
+        pokemon = PokemonDB.getPokemonList(entrenador?.id!!)
        Log.d("resultado",pokemon.toString())
 
        val layoutManager = LinearLayoutManager(this)
@@ -51,6 +58,7 @@ class DetallesEntrenadorActivity : AppCompatActivity() {
 
     fun irActividdadCrearPokemon(){
         val intent = Intent(this, PokemonActivity::class.java)
+        intent.putExtra("tipo", "Create")
         intent.putExtra("idEntrenador", entrenador?.id!!)
         startActivity(intent)
     }
@@ -77,9 +85,9 @@ class DetallesEntrenadorActivity : AppCompatActivity() {
             }
             R.id.item_menu_eliminar -> {
                 val builder = AlertDialog.Builder(this)
-                builder.setMessage("Esta seguro de eliminar")
+                builder.setMessage("Esta seguro de eliminar?")
                         .setPositiveButton("Si", { dialog, which ->
-                            DatabasePokemon.eliminarPokemon(pokemonn.id)
+                            PokemonDB.eliminarPokemon(pokemonn.id)
                             finish()
                             startActivity(intent)
                         }

@@ -60,6 +60,7 @@ class EntrenadorAdapter(private val entrenadorList: List<Entrenador>) :  Recycle
             v: View ->
             val intent = Intent(v.context, DetallesEntrenadorActivity::class.java)
             intent.putExtra("detallesEntrenador", entrenador)
+
             v.context.startActivity(intent)
         }
         holder.itemView.setOnLongClickListener {

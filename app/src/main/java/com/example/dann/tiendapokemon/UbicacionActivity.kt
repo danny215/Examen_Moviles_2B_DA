@@ -1,4 +1,4 @@
-package com.example.daro.carritocompras
+package com.example.dann.tiendapokemon
 
 import android.content.pm.PackageManager
 import android.support.v7.app.AppCompatActivity
@@ -65,7 +65,6 @@ class UbicacionActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnC
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ubicacion)
-
         solicitarPermisosLocalizacion()
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager

@@ -1,4 +1,4 @@
-package com.example.daro.carritocompras
+package com.example.dann.tiendapokemon
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -10,20 +10,20 @@ import android.util.Log
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_listar_entrenadores.*
 
-class ListarPokemonActivity : AppCompatActivity() {
+class ListarEntrenadoresActivity : AppCompatActivity() {
 
-    lateinit var adaptador: PokemonAdapter
-    lateinit var pokemones: ArrayList<Pokemon>
+    lateinit var adaptador: EntrenadorAdapter
+    lateinit var entrenadores: ArrayList<Entrenador>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_listar_pokemon)
+        setContentView(R.layout.activity_listar_entrenadores)
 
-        pokemones = DatabasePokemon.getPokemonList(entrenadorId = 1)
+        entrenadores = DatabaseEntrenador.getList()
 
 
         val layoutManager = LinearLayoutManager(this)
-        adaptador = PokemonAdapter(pokemones)
+        adaptador = EntrenadorAdapter(entrenadores)
         recyclerViewEntrenador.layoutManager = layoutManager
         recyclerViewEntrenador.itemAnimator = DefaultItemAnimator()
         recyclerViewEntrenador.adapter = adaptador
@@ -34,16 +34,29 @@ class ListarPokemonActivity : AppCompatActivity() {
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
         var position = adaptador.getPosition()
-        var pokemon = pokemones[position]
+        var entrenador = entrenadores[position]
 
         when (item.itemId) {
-
-
+            /*R.id.item_menu_compartir -> {
+                val intent = Intent(Intent.ACTION_SEND)
+                intent.type = "text/html"
+                intent.putExtra(Intent.EXTRA_SUBJECT, "${getString(R.string.autor)} - ${getString(R.string.app_name)}")
+                intent.putExtra(Intent.EXTRA_TEXT, "${getString(R.string.name)} ${autor.nombre} ${autor.apellido}\n${getString(R.string.numero_libros)} ${autor.numeroMedallas}\n${getString(R.string.fecha_nacimiento)} ${autor.fechaNacimiento}")
+                startActivity(intent)
+                return true
+            }*/
+            R.id.item_menu_editar -> {
+                val intent = Intent(this, EntrenadorActivity::class.java)
+                intent.putExtra("tipo", "Edit")
+                intent.putExtra("entrenador", entrenador)
+                startActivity(intent)
+                return true
+            }
             R.id.item_menu_eliminar -> {
                 val builder = AlertDialog.Builder(this)
-                builder.setMessage("Esta seguro de eliminar")
+                builder.setMessage("Esta seguro de eliminar?")
                         .setPositiveButton("Si", { dialog, which ->
-                            DatabaseEntrenador.eliminarEntrenador(pokemon.id)
+                            DatabaseEntrenador.eliminarEntrenador(entrenador.id)
                             finish()
                             startActivity(intent)
                         }

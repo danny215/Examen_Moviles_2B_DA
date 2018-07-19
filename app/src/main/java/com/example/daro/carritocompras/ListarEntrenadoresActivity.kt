@@ -19,7 +19,7 @@ class ListarEntrenadoresActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listar_entrenadores)
 
-        entrenadores = DatabaseEntrenador.getList()
+        entrenadores = EntrenadorDB.getList()
 
 
         val layoutManager = LinearLayoutManager(this)
@@ -56,7 +56,7 @@ class ListarEntrenadoresActivity : AppCompatActivity() {
                 val builder = AlertDialog.Builder(this)
                 builder.setMessage("Esta seguro de eliminar?")
                         .setPositiveButton("Si", { dialog, which ->
-                            DatabaseEntrenador.eliminarEntrenador(entrenador.id)
+                            EntrenadorDB.eliminarEntrenador(entrenador.id)
                             finish()
                             startActivity(intent)
                         }

@@ -1,6 +1,5 @@
-package com.example.daro.carritocompras
+package com.example.dann.tiendapokemon
 
-import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
@@ -9,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_listar_entrenadores.*
+import kotlinx.android.synthetic.main.activity_listar_pokemon.*
 
 class ListarPokemonAActivity : AppCompatActivity() {
 
@@ -24,12 +24,12 @@ class ListarPokemonAActivity : AppCompatActivity() {
 
         val layoutManager = LinearLayoutManager(this)
         adaptador = PokemonAdapter(pokemones)
-        recyclerViewEntrenador.layoutManager = layoutManager
-        recyclerViewEntrenador.itemAnimator = DefaultItemAnimator()
-        recyclerViewEntrenador.adapter = adaptador
+        recyclerViewPokemon.layoutManager = layoutManager
+        recyclerViewPokemon.itemAnimator = DefaultItemAnimator()
+        recyclerViewPokemon.adapter = adaptador
         adaptador.notifyDataSetChanged()
 
-        registerForContextMenu(recyclerViewEntrenador)
+        registerForContextMenu(recyclerViewPokemon)
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
