@@ -20,6 +20,9 @@ class DetalleOrdenActivity : AppCompatActivity() {
         oredenes = intent.getParcelableExtra("detallesOrden")
 
         txtShowCedula.text = oredenes?.cedulaComprador.toString()
+        txtShowNombre.text = oredenes?.nombre
+        txtShowApellido.text = oredenes?.apellido
+        txtShowEdad.text = oredenes?.edad.toString()
         txtShowSector.text = oredenes?.sector
         txtShowIdPokemon.text = oredenes?.idPokemon.toString()
 
@@ -37,8 +40,8 @@ class DetalleOrdenActivity : AppCompatActivity() {
         val ordenDetalles = OrdenDetalles(0,fechaEnvio,costoPokemon,idPokemon)
         OrdenCompraDB.insertarOrdenDetalles(ordenDetalles)
         Alerter.create(this)
-                .setTitle("Orden enviada a CLIENTE")
-                .setText("La solicitud fue enviada exitosamente")
+                .setTitle("Orden enviada a Cliente")
+                .setText("La solicitud fue enviada correctamente")
                 .enableSwipeToDismiss()
                 .show()
     }

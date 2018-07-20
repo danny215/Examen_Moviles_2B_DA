@@ -34,7 +34,7 @@ class DatosCompradorActivity : AppCompatActivity() {
         var edad = txtEdad.text.toString().toInt()
         var idPokemon = idPokemonn.toString().toInt()
 
-        var oredenCompra = OrdenCompraKotlinClass(0,cedula,sector,nombre,apellido,edad,idPokemon)
+        var oredenCompra = OrdenCompraKotlinClass(0,cedula,nombre,apellido,edad,sector,idPokemon)
         OrdenCompraDB.insertarOrden(oredenCompra)
 
         Alerter.create(this)

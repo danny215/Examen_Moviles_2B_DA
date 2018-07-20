@@ -21,6 +21,9 @@ class OrdenesPendientesAdaptador(private val ordenesList: List<OrdenCompraKotlin
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnCreateContextMenuListener {
 
         var cedula: TextView
+        //var nombre : TextView
+        //var apellido : TextView
+        //var edad : TextView
         var sector : TextView
         var idPokemon: TextView
         var detalles: Button
@@ -29,6 +32,9 @@ class OrdenesPendientesAdaptador(private val ordenesList: List<OrdenCompraKotlin
 
         init {
             cedula = view.findViewById(R.id.txtNombreEntrenador) as TextView
+           // nombre = view.findViewById(R.id.txtShowNombre) as TextView
+            //apellido = view.findViewById(R.id.txtShowApellido) as TextView
+            //edad = view.findViewById(R.id.txtShowEdad) as TextView
             sector = view.findViewById(R.id.txtApellidoEntrenador) as TextView
             idPokemon = view.findViewById(R.id.txtFechaNacimientoEntrenador) as TextView
             detalles = view.findViewById(R.id.btnDetallesEntrenado) as Button
@@ -53,6 +59,9 @@ class OrdenesPendientesAdaptador(private val ordenesList: List<OrdenCompraKotlin
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val orden = ordenesList[position]
         holder.cedula.text = orden.cedulaComprador.toString()
+       // holder.nombre.text = orden.nombre
+        //holder.apellido.text = orden.apellido
+        //holder.edad.text = orden.edad.toString()
         holder.sector.text = orden.sector
         holder.idPokemon.text = orden.idPokemon.toString()
         holder.ordenn = orden

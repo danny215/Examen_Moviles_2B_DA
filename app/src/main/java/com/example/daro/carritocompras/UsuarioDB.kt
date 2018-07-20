@@ -9,7 +9,7 @@ class UsuarioDB{
     companion object {
 
         fun insertarUsuario(usuario: Usuario) {
-            "http://172.29.64.135:1337/Usuario".httpPost(listOf("rol" to usuario.rol, "username" to usuario.nombreUsuario, "password" to usuario.contrasena))
+            "http://192.168.100.26:1337/Usuario".httpPost(listOf("rol" to usuario.rol, "username" to usuario.nombreUsuario, "password" to usuario.contrasena))
                     .responseString { request, _, result ->
                         Log.d("http-ejemplo", request.toString())
                     }
@@ -19,7 +19,7 @@ class UsuarioDB{
             val usuarios: ArrayList<Usuario> = ArrayList()
             val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
             StrictMode.setThreadPolicy(policy)
-            val (request, response, result) = "http://172.29.64.135:1337/Usuario".httpGet().responseString()
+            val (request, response, result) = "http://192.168.100.26:1337/Usuario".httpGet().responseString()
             val jsonStringAutor = result.get()
 
             val parser = Parser()

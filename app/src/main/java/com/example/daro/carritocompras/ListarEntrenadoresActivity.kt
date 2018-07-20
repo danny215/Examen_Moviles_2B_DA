@@ -54,7 +54,7 @@ class ListarEntrenadoresActivity : AppCompatActivity() {
             }
             R.id.item_menu_eliminar -> {
                 val builder = AlertDialog.Builder(this)
-                builder.setMessage("Esta seguro de eliminar?")
+                builder.setMessage("¿Esta seguro de eliminar?")
                         .setPositiveButton("Si", { dialog, which ->
                             EntrenadorDB.eliminarEntrenador(entrenador.id)
                             finish()

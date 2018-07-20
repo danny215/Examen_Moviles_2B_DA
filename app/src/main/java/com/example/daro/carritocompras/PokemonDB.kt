@@ -14,21 +14,21 @@ class PokemonDB{
     companion object {
 
         fun insertarPokemon(pokemon:Pokemon){
-            "http://172.29.64.135:1337/Pokemon".httpPost(listOf("numero" to pokemon.numeroPokemon, "nombre" to pokemon.nombre, "poderUno" to pokemon.poderUno, "poderDos" to pokemon.poderDos, "fechaCaptura" to pokemon.fechaCaptura,"nivel" to pokemon.nivel,"imagenPokemon" to pokemon.imagenPokemon,"entrenadorId" to pokemon.idEntrenador ))
+            "http://192.168.100.26:1337/Pokemon".httpPost(listOf("numero" to pokemon.numeroPokemon, "nombre" to pokemon.nombre, "poderUno" to pokemon.poderUno, "poderDos" to pokemon.poderDos, "fechaCaptura" to pokemon.fechaCaptura,"nivel" to pokemon.nivel,"imagenPokemon" to pokemon.imagenPokemon,"entrenadorId" to pokemon.idEntrenador ))
                     .responseString { request, _, result ->
                         Log.d("http-ejemplo", request.toString())
                     }
         }
 
         fun eliminarPokemon(id: Int) {
-            "http://172.29.64.135:1337/Pokemon/$id".httpDelete()
+            "http://192.168.100.26:1337/Pokemon/$id".httpDelete()
                     .responseString { request, response, result ->
                         Log.d("http-ejemplo", request.toString())
                     }
         }
 
         fun actualizarPokemon(pokemon: Pokemon) {
-            "http://172.29.64.135:1337/Pokemon/${pokemon.id}".httpPut(listOf("numero" to pokemon.numeroPokemon, "nombre" to pokemon.nombre, "poderUno" to pokemon.poderUno, "poderDos" to pokemon.poderDos, "fechaCaptura" to pokemon.fechaCaptura, "nivel" to pokemon.nivel))
+            "http://192.168.100.26:1337/Pokemon/${pokemon.id}".httpPut(listOf("numero" to pokemon.numeroPokemon, "nombre" to pokemon.nombre, "poderUno" to pokemon.poderUno, "poderDos" to pokemon.poderDos, "fechaCaptura" to pokemon.fechaCaptura, "nivel" to pokemon.nivel))
                     .responseString { request, _, result ->
                         Log.d("http-ejemplo", request.toString())
                     }
@@ -38,7 +38,7 @@ class PokemonDB{
             val pokemon: ArrayList<Pokemon> = ArrayList()
             val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
             StrictMode.setThreadPolicy(policy)
-            val (request, response, result) = "http://172.29.64.135:1337/Pokemon?entrenadorId=$entrenadorId".httpGet().responseString()
+            val (request, response, result) = "http://192.168.100.26:1337/Pokemon?entrenadorId=$entrenadorId".httpGet().responseString()
             val jsonStringPokemon = result.get()
 
             val parser = Parser()
